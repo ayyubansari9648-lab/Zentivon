@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ZENTIVON | CBSE Papers</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    min-height:100vh;
+    color:white;
+    background:
+    radial-gradient(circle at 10% 10%,#172554,transparent 30%),
+    radial-gradient(circle at 90% 90%,#581c87,transparent 30%),
+    #020617;
+    overflow-x:hidden;
+}
+
+/* Animated Lights */
+.light{
+    position:fixed;
+    width:110px;
+    height:110px;
+    border-radius:50%;
+    filter:blur(55px);
+    opacity:.35;
+    z-index:-1;
+    animation:float 7s infinite alternate ease-in-out;
+}
+
+.l1{
+    background:#00eaff;
+    top:12%;
+    left:-30px;
+}
+
+.l2{
+    background:#a855f7;
+    bottom:10%;
+    right:-30px;
+    animation-delay:2s;
+}
+
+@keyframes float{
+    from{transform:translate(0,0);}
+    to{transform:translate(100px,70px);}
+}
+
+/* Header */
+header{
+    text-align:center;
+    padding:35px 15px;
+    background:rgba(255,255,255,.06);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid rgba(255,255,255,.15);
+}
+
+.logo{
+    font-size:42px;
+    font-weight:900;
+    letter-spacing:5px;
+    animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+    from{
+        text-shadow:0 0 5px white;
+    }
+    to{
+        text-shadow:
+        0 0 10px #00eaff,
+        0 0 25px #00eaff,
+        0 0 45px #a855f7;
+    }
+}
+
+.subtitle{
+    margin-top:10px;
+    color:#cbd5e1;
+}
+
+/* Main */
+.container{
+    width:92%;
+    max-width:1100px;
+    margin:40px auto;
+}
+
+.heading{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.heading h1{
+    font-size:30px;
+}
+
+.heading p{
+    margin-top:8px;
+    color:#94a3b8;
+}
+
+/* Cards */
+.grid{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(260px,1fr));
+    gap:22px;
+}
+
+.card{
+    padding:25px;
+    border-radius:24px;
+    background:rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.15);
+    backdrop-filter:blur(14px);
+    box-shadow:0 15px 35px rgba(0,0,0,.3);
+    transition:.4s;
+    animation:cardIn .8s ease both;
+}
+
+.card:hover{
+    transform:translateY(-10px) scale(1.02);
+    border-color:#00eaff;
+    box-shadow:0 0 30px rgba(0,234,255,.18);
+}
+
+@keyframes cardIn{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.icon{
+    font-size:48px;
+    margin-bottom:15px;
+}
+
+.card h2{
+    font-size:22px;
+    margin-bottom:8px;
+}
+
+.card p{
+    color:#aebbd3;
+    line-height:1.5;
+    margin-bottom:20px;
+}
+
+/* Buttons */
+.buttons{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-block;
+    text-decoration:none;
+    color:white;
+    padding:12px 15px;
+    border-radius:12px;
+    font-weight:bold;
+    font-size:13px;
+    transition:.3s;
+    border:1px solid rgba(255,255,255,.15);
+    cursor:pointer;
+}
+
+/* Sample Button */
+.sample{
+    background:linear-gradient(90deg,#0284c7,#2563eb);
+}
+
+/* TEST Button - unchanged */
+.test{
+    background:linear-gradient(90deg,#7c3aed,#db2777);
+}
+
+.btn:hover{
+    transform:scale(1.05);
+}
+
+.sample:hover{
+    box-shadow:0 0 18px rgba(0,234,255,.45);
+}
+
+.test:hover{
+    box-shadow:0 0 18px rgba(168,85,247,.4);
+}
+
+/* Notice */
+.notice{
+    margin-top:35px;
+    padding:20px;
+    text-align:center;
+    border-radius:18px;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.12);
+    color:#cbd5e1;
+}
+
+/* Footer */
+footer{
+    margin-top:55px;
+    padding:35px 15px;
+    text-align:center;
+    border-top:1px solid rgba(255,255,255,.1);
+    background:rgba(0,0,0,.2);
+}
+
+.created{
+    color:#94a3b8;
+    font-size:14px;
+}
+
+.name{
+    margin:8px 0;
+    font-size:27px;
+    font-weight:bold;
+    letter-spacing:4px;
+    animation:nameGlow 2s infinite alternate;
+}
+
+@keyframes nameGlow{
+    from{
+        text-shadow:0 0 4px white;
+    }
+    to{
+        text-shadow:
+        0 0 12px #00eaff,
+        0 0 25px #a855f7;
+    }
+}
+
+/* CUSTOM DOWNLOAD POPUP */
+.popup{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.70);
+    backdrop-filter:blur(8px);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:9999;
+    padding:20px;
+}
+
+.popup-box{
+    width:100%;
+    max-width:350px;
+    padding:28px;
+    border-radius:22px;
+    text-align:center;
+    background:#111827;
+    border:1px solid rgba(255,255,255,.18);
+    box-shadow:0 20px 60px rgba(0,0,0,.6);
+    animation:popupIn .3s ease;
+}
+
+@keyframes popupIn{
+    from{
+        opacity:0;
+        transform:scale(.8);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+.popup-icon{
+    font-size:45px;
+    margin-bottom:12px;
+}
+
+.popup-box h2{
+    font-size:21px;
+    margin-bottom:10px;
+}
+
+.popup-box p{
+    color:#aebbd3;
+    font-size:14px;
+    line-height:1.5;
+    margin-bottom:22px;
+}
+
+.popup-buttons{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+}
+
+/* YES = DARK */
+.yes-btn{
+    background:#020617;
+    color:white;
+    border:1px solid #475569;
+    padding:11px 24px;
+    border-radius:11px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.yes-btn:hover{
+    background:#000;
+    transform:scale(1.05);
+    box-shadow:0 0 15px rgba(148,163,184,.25);
+}
+
+/* NO */
+.no-btn{
+    background:#334155;
+    color:white;
+    border:0;
+    padding:11px 24px;
+    border-radius:11px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.no-btn:hover{
+    transform:scale(1.05);
+}
+
+@media(max-width:500px){
+
+    .logo{
+        font-size:32px;
+    }
+
+    .heading h1{
+        font-size:25px;
+    }
+
+    .popup-box{
+        max-width:330px;
+    }
+}
+</style>
+</head>
+
+
+<body>
+
+<div class="light l1"></div>
+<div class="light l2"></div>
+
+
+<header>
+
+    <div class="logo">
+        ZENTIVON
+    </div>
+
+    <div class="subtitle">
+        CBSE CLASS X • SAMPLE PAPERS • TEST
+    </div>
+
+</header>
+
+
+<main class="container">
+
+    <div class="heading">
+
+        <h1>
+            📚 CBSE SAMPLE PAPERS
+        </h1>
+
+        <p>
+            Select your subject and open its PDF
+        </p>
+
+    </div>
+
+
+    <div class="grid">
+
+
+        <!-- HINDI -->
+        <div class="card">
+
+            <div class="icon">🇮🇳</div>
+
+            <h2>HINDI</h2>
+
+            <p>
+                CBSE Class X Hindi A Sample Question Paper
+            </p>
+
+            <div class="buttons">
+
+                <button class="btn sample"
+                onclick="openDownload('Hindi Sample Paper',
+                'https://cbseacademic.nic.in/web_material/SQP/ClassX_2025_26/HindiCourseA-SQP.pdf')">
+
+                    📄 OPEN SAMPLE PDF
+
+                </button>
+
+                <a class="btn test" href="#">
+                    📝 TEST
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- ENGLISH -->
+        <div class="card">
+
+            <div class="icon">📖</div>
+
+            <h2>ENGLISH</h2>
+
+            <p>
+                English Language & Literature Sample Paper
+            </p>
+
+            <div class="buttons">
+
+                <button class="btn sample"
+                onclick="openDownload('English Sample Paper',
+                'https://cbseacademic.nic.in/web_material/SQP/ClassX_2025_26/EnglishL-SQP.pdf')">
+
+                    📄 OPEN SAMPLE PDF
+
+                </button>
+
+                <a class="btn test" href="#">
+                    📝 TEST
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- MATHS -->
+        <div class="card">
+
+            <div class="icon">➗</div>
+
+            <h2>MATHEMATICS</h2>
+
+            <p>
+                Mathematics Standard Sample Question Paper
+            </p>
+
+            <div class="buttons">
+
+                <button class="btn sample"
+                onclick="openDownload('Mathematics Sample Paper',
+                'https://cbseacademic.nic.in/web_material/SQP/ClassX_2025_26/MathsStandard-SQP.pdf')">
+
+                    📄 OPEN SAMPLE PDF
+
+                </button>
+
+                <a class="btn test" href="#">
+                    📝 TEST
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- SCIENCE -->
+        <div class="card">
+
+            <div class="icon">🔬</div>
+
+            <h2>SCIENCE</h2>
+
+            <p>
+                Physics • Chemistry • Biology Sample Paper
+            </p>
+
+            <div class="buttons">
+
+                <button class="btn sample"
+                onclick="openDownload('Science Sample Paper',
+                'https://cbseacademic.nic.in/web_material/SQP/ClassX_2025_26/Science-SQP.pdf')">
+
+                    📄 OPEN SAMPLE PDF
+
+                </button>
+
+                <a class="btn test" href="#">
+                    📝 TEST
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- SOCIAL SCIENCE -->
+        <div class="card">
+
+            <div class="icon">🌍</div>
+
+            <h2>SOCIAL SCIENCE</h2>
+
+            <p>
+                History • Geography • Civics • Economics
+            </p>
+
+            <div class="buttons">
+
+                <button class="btn sample"
+                onclick="openDownload('Social Science Sample Paper',
+                'https://cbseacademic.nic.in/web_material/SQP/ClassX_2025_26/SocialScience-SQP.pdf')">
+
+                    📄 OPEN SAMPLE PDF
+
+                </button>
+
+                <a class="btn test" href="#">
+                    📝 TEST
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- IT -->
+        <div class="card">
+
+            <div class="icon">💻</div>
+
+            <h2>INFORMATION TECHNOLOGY</h2>
+
+            <p>
+                Subject Code 402 • Sample Question Paper
+            </p>
+
+            <div class="buttons">
+
+                <button class="btn sample"
+                onclick="openDownload('Information Technology Sample Paper',
+                'https://cbseacademic.nic.in/web_material/Curriculum26/SQP_MS_X/402_Information_Tech_SQP.pdf')">
+
+                    📄 OPEN SAMPLE PDF
+
+                </button>
+
+                <a class="btn test" href="#">
+                    📝 TEST
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="notice">
+
+        💡 <b>ZENTIVON</b>
+
+        <br><br>
+
+        📄 Select your subject to open its Sample PDF.
+
+        <br>
+
+        📝 Test section is ready to be connected.
+
+    </div>
+
+</main>
+
+
+<footer>
+
+    <div class="created">
+        Website Created By
+    </div>
+
+    <div class="name">
+        ARIF ❤️
+    </div>
+
+    <div class="created">
+        © 2026 ZENTIVON
+    </div>
+
+</footer>
+
+
+<!-- CUSTOM DOWNLOAD POPUP -->
+
+<div class="popup" id="downloadPopup">
+
+    <div class="popup-box">
+
+        <div class="popup-icon">
+            📥
+        </div>
+
+        <h2>
+            Do you want to download?
+        </h2>
+
+        <p id="paperName">
+            Sample Paper
+        </p>
+
+        <div class="popup-buttons">
+
+            <button class="yes-btn"
+            onclick="downloadPaper()">
+                YES
+            </button>
+
+            <button class="no-btn"
+            onclick="closePopup()">
+                NO
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+let selectedPDF = "";
+
+/* Open custom popup */
+
+function openDownload(name, url){
+
+    selectedPDF = url;
+
+    document.getElementById("paperName").innerText =
+        name + " PDF";
+
+    document.getElementById("downloadPopup").style.display =
+        "flex";
+}
+
+
+/* YES button */
+
+function downloadPaper(){
+
+    if(selectedPDF !== ""){
+
+        window.open(selectedPDF,"_blank");
+
+    }
+
+    closePopup();
+}
+
+
+/* NO button */
+
+function closePopup(){
+
+    document.getElementById("downloadPopup").style.display =
+        "none";
+
+    selectedPDF = "";
+
+}
+
+
+/* Close popup by clicking outside */
+
+document.getElementById("downloadPopup")
+.addEventListener("click",function(e){
+
+    if(e.target === this){
+        closePopup();
+    }
+
+});
+
+</script>
+
+</body>
+</html>
